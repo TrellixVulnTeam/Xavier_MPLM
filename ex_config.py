@@ -1,7 +1,7 @@
 # EDIT THIS FILE AND RENAME TO config.py TO MAKE THIS BOT WORKING
 # FILL THESE VALUES ACCORDINGLY.
 
-from hell_config import Config
+from xavier_config import Config
 
 class Development(Config):
   # get these values from my.telegram.org. 
@@ -9,8 +9,8 @@ class Development(Config):
   API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"   # replace this with your api hash
 
   # the name to display in your alive message.
-  # If not filled anything then default value is I'm Hêll.
-  YOUR_NAME = "I'm Hêll"
+  # If not filled anything then default value is I'm Xavier.
+  YOUR_NAME = "I'm Xavier"
 
   # create any PostgreSQL database.
   # I recommend to use elephantsql and paste that link here
@@ -20,7 +20,7 @@ class Development(Config):
   # Do `python string.py` and fill the on screen prompts.
   # String session will be saved in your saved message of telegram.
   # Put that string here.
-  HELLBOT_SESSION = "Your value"
+  STRING_SESSION = "Your value"
 
   # Create a bot in @BotFather
   # And fill the following values with bot token and username.
@@ -44,4 +44,4 @@ class Development(Config):
   SUDO_HANDLER = "!"
 
 # end of required config
-# hellbot
+# xavier

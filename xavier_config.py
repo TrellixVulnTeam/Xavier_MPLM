@@ -87,17 +87,17 @@ class Config(object):
     REMOVE_BG_API = os.environ.get("REMOVE_BG_API", None)
     SCREEN_SHOT_LAYER_ACCESS_KEY = os.environ.get("SCREEN_SHOT_LAYER_ACCESS_KEY", None)
     STICKER_PACKNAME = os.environ.get("STICKER_PACKNAME", None)
-    HELLBOT_SESSION = os.environ.get("HELLBOT_SESSION", None)
+    STRING_SESSION = os.environ.get("STRING_SESSION", None)
     SUDO_HANDLER = os.environ.get("SUDO_HANDLER", r"\.")
     SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
     TAG_LOGGER = os.environ.get("TAG_LOGGER", None)
     if TAG_LOGGER: 
         TAG_LOGGER = int(TAG_LOGGER)
-    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "HellBot")
+    TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "Xavier")
     TEMP_DIR = os.environ.get("TEMP_DIR", None)
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
     TZ = os.environ.get("TZ", "Asia/Kolkata")
-    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/The-HellBot/HellBot")
+    UPSTREAM_REPO = os.environ.get("UPSTREAM_REPO", "https://github.com/The-LimitedEditioN/Xavier")
     USE_EVAL = os.environ.get("USE_EVAL", None)
     WEATHER_API = os.environ.get("WEATHER_API", None)
     YOUR_NAME = os.environ.get("YOUR_NAME", None)
@@ -112,4 +112,4 @@ class Development(Config):
     LOGGER = True
 
 
-# hellbot
+# xavier

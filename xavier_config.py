@@ -1,4 +1,4 @@
-# IF YOU ARE HOSTING HELLBOT ON OTHER VPS OR LOCALLY RATHER THAN HEROKU
+# IF YOU ARE HOSTING XAVIER ON OTHER VPS OR LOCALLY RATHER THAN HEROKU
 # THEN DON'T EDIT THIS FILE.
 # GO AND EDIT ex_config.py AND RENAME IT TO config.py
 # AND FILL THE REQUIRED VARS THERE.
@@ -12,8 +12,8 @@ from telethon.tl.types import ChatBannedRights
 class Config(object):
     LOGGER = True
     ABUSE = os.environ.get("ABUSE", None)
-    ALIVE_MSG = os.environ.get("ALIVE_MSG", "⚡ ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt ⚡")
-    ALIVE_PIC = os.environ.get("ALIVE_PIC", "https://telegra.ph/file/f62e50245639f24fd955b.jpg")
+    ALIVE_MSG = os.environ.get("ALIVE_MSG", "Xavier is Alive")
+    ALIVE_PIC = os.environ.get("ALIVE_PIC", "https://telegra.ph/file/82667e54c5a2b3e86b56d.jpg")
     ANTI_FLOOD_WARN_MODE = ChatBannedRights(
         until_date=None,
         view_messages=None,
@@ -29,7 +29,7 @@ class Config(object):
         t_file.close()
     BAN_PIC = os.environ.get("BAN_PIC", None)
     BAN_TEXT = os.environ.get("BAN_TEXT", None)
-    BIO_MSG = os.environ.get("BIO_MSG", "ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt")
+    BIO_MSG = os.environ.get("BIO_MSG", "Xavier is Alive")
     BL_CHAT = set(int(x) for x in os.environ.get("BL_CHAT", "").split())
     BOT_HANDLER = os.environ.get("BOT_HANDLER", "\/")
     BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
@@ -73,8 +73,8 @@ class Config(object):
     MAX_MESSAGE_SIZE_LIMIT = 4095
     MAX_SPAM = int(os.environ.get("MAX_SPAM", 3))
     MONGO_URI = os.environ.get("MONGO_URI", None)
-    MY_CHANNEL = os.environ.get("YOUR_CHANNEL", "Its_HellBot")
-    MY_GROUP = os.environ.get("YOUR_GROUP", "HellBot_Chat")
+    MY_CHANNEL = os.environ.get("YOUR_CHANNEL", "The_LimitedEdition")
+    MY_GROUP = os.environ.get("YOUR_GROUP", "LimitedEdition_Support")
     OCR_API = os.environ.get("OCR_API", None)
     PLUGIN_CHANNEL = os.environ.get("PLUGIN_CHANNEL", None)
     if PLUGIN_CHANNEL:

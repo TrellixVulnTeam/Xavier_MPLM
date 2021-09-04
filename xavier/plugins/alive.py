@@ -9,44 +9,44 @@ from . import *
 
 #-------------------------------------------------------------------------------
 
-hell_pic = Config.ALIVE_PIC or "https://telegra.ph/file/ea9e11f7c9db21c1b8d5e.mp4"
-alive_c = f"__**🔥🔥ɦɛʟʟɮօt ɨs օռʟɨռɛ🔥🔥**__\n\n"
-alive_c += f"__↼ Øwñêr ⇀__ : 『 {hell_mention} 』\n\n"
-alive_c += f"•♦• Telethon     :  `{tel_ver}` \n"
-alive_c += f"•♦• Hêllẞø†       :  __**{hell_ver}**__\n"
-alive_c += f"•♦• Sudo            :  `{is_sudo}`\n"
-alive_c += f"•♦• Channel      :  {hell_channel}\n"
+xavier_pic = Config.ALIVE_PIC or "https://telegra.ph/file/82667e54c5a2b3e86b56d.jpg"
+alive_c = f"__**✘ χανιєя ιѕ σиℓιиє ✘**__\n\n"
+alive_c += f"__↼ 𝐎𝐖𝐍𝐄𝐑 ⇀__ : ◤ {xavier_mention} ◢\n\n"
+alive_c += f"•✘• 𝐓𝐞𝐥𝐞𝐭𝐡𝐨𝐧    :  `{tel_ver}` \n"
+alive_c += f"•✘• 𝐗𝐚𝐯𝐢𝐞𝐫       :  __**{xavier_ver}**__\n"
+alive_c += f"•✘• 𝐒𝐮𝐝𝐨            :  `{is_sudo}`\n"
+alive_c += f"•✘• 𝐂𝐡𝐚𝐧𝐧𝐞𝐥      :  {xavier_channel}\n"
 
 #-------------------------------------------------------------------------------
 
-@bot.on(hell_cmd(outgoing=True, pattern="alive$"))
+@bot.on(xavier_cmd(outgoing=True, pattern="alive$"))
 @bot.on(sudo_cmd(pattern="alive$", allow_sudo=True))
-async def up(hell):
-    if hell.fwd_from:
+async def up(xavier):
+    if xavier.fwd_from:
         return
-    await hell.get_chat()
-    await hell.delete()
-    await bot.send_file(hell.chat_id, hell_pic, caption=alive_c)
-    await hell.delete()
+    await xavier.get_chat()
+    await xavier.delete()
+    await bot.send_file(xavier.chat_id, xavier_pic, caption=alive_c)
+    await xavier.delete()
 
 msg = f"""
-**⚡ нєℓℓвσт ιѕ σиℓιиє ⚡**
+**🚀 𝙓𝙖𝙫𝙞𝙚𝙧 𝙞𝙨 𝙊𝙣𝙡𝙞𝙣𝙚 🚀**
 {Config.ALIVE_MSG}
-**🏅 𝙱𝚘𝚝 𝚂𝚝𝚊𝚝𝚞𝚜 🏅**
-**Telethon :**  `{tel_ver}`
-**Hêllẞø†  :**  **{hell_ver}**
-**Abuse    :**  **{abuse_m}**
-**Sudo      :**  **{is_sudo}**
+**🏓 𝐁𝐨𝐭 𝐒𝐭𝐚𝐭𝐮𝐬 🏓**
+**𝙏𝙚𝙡𝙚𝙩𝙝𝙤𝙣 :**  `{tel_ver}`
+**𝙓𝙖𝙫𝙞𝙚𝙧  :**  **{xavier_ver}**
+**𝘼𝙗𝙪𝙨𝙚    :**  **{abuse_m}**
+**𝙎𝙪𝙙𝙤      :**  **{is_sudo}**
 """
 botname = Config.BOT_USERNAME
 
-@bot.on(hell_cmd(pattern="hell$"))
-@bot.on(sudo_cmd(pattern="hell$", allow_sudo=True))
-async def hell_a(event):
+@bot.on(xavier_cmd(pattern="xavier$"))
+@bot.on(sudo_cmd(pattern="xavier$", allow_sudo=True))
+async def xavier_a(event):
     try:
-        hell = await bot.inline_query(botname, "alive")
-        await hell[0].click(event.chat_id)
-        if event.sender_id == ForGo10God:
+        xavier = await bot.inline_query(botname, "alive")
+        await xavier[0].click(event.chat_id)
+        if event.sender_id == FocusFusioN:
             await event.delete()
     except (noin, dedbot):
         await eor(event, msg)
@@ -55,7 +55,7 @@ async def hell_a(event):
 CmdHelp("alive").add_command(
   "alive", None, "Shows the Default Alive Message"
 ).add_command(
-  "hell", None, "Shows Inline Alive Menu with more details."
+  "xavier", None, "Shows Inline Alive Menu with more details."
 ).add_warning(
   "✅ Harmless Module"
 ).add()

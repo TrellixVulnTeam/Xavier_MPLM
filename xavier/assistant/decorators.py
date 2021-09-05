@@ -5,9 +5,9 @@ from xavier import *
 bothandler = Config.BOT_HANDLER
 
 
-def hellbot_cmd(add_cmd, is_args=False):
+def xavier_cmd(add_cmd, is_args=False):
     def cmd(func):
-        hellbot = bot.tgbot
+        xavier = bot.tgbot
         if is_args:
             pattern = bothandler + add_cmd + "(?: |$)(.*)"
         elif is_args == "simp":
@@ -18,7 +18,7 @@ def hellbot_cmd(add_cmd, is_args=False):
             pattern = bothandler + add_cmd + " (\S+)"
         else:
             pattern = bothandler + add_cmd + "$"
-        hellbot.add_event_handler(
+        xavier.add_event_handler(
             func, events.NewMessage(incoming=True, pattern=pattern)
         )
 
@@ -29,13 +29,13 @@ def is_admin():
     def decorator(func):
         @functools.wraps(func)
         async def wrapper(event):
-            hellbot = bot.tgbot
-            perms = await hellbot.get_permissions(event.chat_id, event.sender_id)
+            xavier = bot.tgbot
+            perms = await xavier.get_permissions(event.chat_id, event.sender_id)
             user = event.sender_id
-            ForGo10 = bot.uid
+            FocusFusi = bot.uid
             if perms.is_admin:
                 await func(event)
-            if event.sender_id == ForGo10:
+            if event.sender_id == FocusFusi:
                 pass
             elif not user:
                 pass
@@ -51,9 +51,9 @@ def is_bot_admin():
     def decorator(func):
         @functools.wraps(func)
         async def wrapper(event):
-            hellbot = bot.tgbot
-            boat = await hellbot.get_me()
-            perms = await hellbot.get_permissions(event.chat_id, boat)
+            xavier = bot.tgbot
+            boat = await xavier.get_me()
+            perms = await xavier.get_permissions(event.chat_id, boat)
             if perms.is_admin:
                 await func(event)
             else:

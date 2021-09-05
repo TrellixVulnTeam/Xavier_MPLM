@@ -16,9 +16,9 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from hellbot import *
-from hellbot.helpers.pasters import pasty
-from hellbot.config import Config
+from xavier import *
+from xavier.helpers.pasters import pasty
+from xavier.config import Config
 
 
 # either edit or reply that msg

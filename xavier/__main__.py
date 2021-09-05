@@ -7,10 +7,10 @@ import telethon.utils
 from telethon import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
 
-from hellbot import LOGS, bot, tbot
-from hellbot.config import Config
-from hellbot.utils import load_module
-from hellbot.version import __hell__ as hellver
+from xavier import LOGS, bot, tbot
+from xavier.config import Config
+from xavier.utils import load_module
+from xavier.version import __hell__ as hellver
 hl = Config.HANDLER
 HELL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/ea9e11f7c9db21c1b8d5e.mp4"
 

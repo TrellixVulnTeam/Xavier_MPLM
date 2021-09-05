@@ -16,16 +16,16 @@ from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
 
-from hellbot import *
-from hellbot.helpers import *
-from hellbot.config import *
-from hellbot.utils import *
+from xavier import *
+from xavier.helpers import *
+from xavier.config import *
+from xavier.utils import *
 
 
 # ENV
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
-    from hellbot.config import Config
+    from xavier.config import Config
 else:
     if os.path.exists("Config.py"):
         from Config import Development as Config

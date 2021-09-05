@@ -6,7 +6,7 @@ import urllib3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
-from hellbot.helpers import runner
+from xavier.helpers import runner
 from . import *
 
 

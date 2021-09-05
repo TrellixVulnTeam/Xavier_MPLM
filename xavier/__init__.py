@@ -11,7 +11,7 @@ from requests import get
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from hellbot.config import Config
+from xavier.config import Config
 
 StartTime = datetime.datetime.now()
 

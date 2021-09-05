@@ -1,5 +1,5 @@
 import os
-from hellbot import CMD_HELP, CMD_HELP_BOT
+from xavier import CMD_HELP, CMD_HELP_BOT
 
 HANDLER = os.environ.get("HANDLER", r".")
 

@@ -1,10 +1,10 @@
 import datetime
-from hellbot import *
-from hellbot.config import Config
-from hellbot.helpers import *
-from hellbot.utils import *
-from hellbot.random_strings import *
-from hellbot.version import __hell__
+from xavier import *
+from xavier.config import Config
+from xavier.helpers import *
+from xavier.utils import *
+from xavier.random_strings import *
+from xavier.version import __hell__
 from telethon import version
 
 

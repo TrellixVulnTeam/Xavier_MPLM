@@ -4,21 +4,21 @@ from xavier.config import Config
 from xavier.helpers import *
 from xavier.utils import *
 from xavier.random_strings import *
-from xavier.version import __hell__
+from xavier.version import __xavier__
 from telethon import version
 
 
-HELL_USER = bot.me.first_name
-ForGo10God = bot.uid
-hell_mention = f"[{HELL_USER}](tg://user?id={ForGo10God})"
-hell_logo = "./hellbot/resources/pics/hellbot_logo.jpg"
-cjb = "./hellbot/resources/pics/cjb.jpg"
-restlo = "./hellbot/resources/pics/rest.jpeg"
-shuru = "./hellbot/resources/pics/shuru.jpg"
-shhh = "./hellbot/resources/pics/chup_madarchod.jpeg"
+XAVIER_USER = bot.me.first_name
+FocusFusioN = bot.uid
+xavier_mention = f"[{XAVIER_USER}](tg://user?id={FocusFusioN})"
+xavier_logo = "./xavier/resources/pics/xavier_logo.jpg"
+cjb = "./xavier/resources/pics/cjb.jpg"
+restlo = "./xavier/resources/pics/rest.jpeg"
+shuru = "./xavier/resources/pics/shuru.jpg"
+shhh = "./xavier/resources/pics/chup_madarchod.jpeg"
 hl = Config.HANDLER
 shl = Config.SUDO_HANDLER
-hell_ver = __hell__
+xavier_ver = __xavier__
 tel_ver = version.__version__
 
 async def get_user_id(ids):
@@ -42,17 +42,17 @@ else:
 
 START_TIME = datetime.datetime.now()
 uptime = f"{str(datetime.datetime.now() - START_TIME).split('.')[0]}"
-my_channel = Config.MY_CHANNEL or "Its_HellBot"
-my_group = Config.MY_GROUP or "HellBot_Chat"
+my_channel = Config.MY_CHANNEL or "XavierUB"
+my_group = Config.MY_GROUP or "XavierSupport"
 if "@" in my_channel:
     my_channel = my_channel.replace("@", "")
 if "@" in my_group:
     my_group = my_group.replace("@", "")
 
-chnl_link = "https://t.me/its_hellbot"
-hell_channel = f"[†hê Hêllẞø†]({chnl_link})"
-grp_link = "https://t.me/HellBot_Chat"
-hell_grp = f"[Hêllẞø† Group]({grp_link})"
+chnl_link = "https://t.me/XavierUB"
+xavier_channel = f"[Xavier UB]({chnl_link})"
+grp_link = "https://t.me/XavierSupport"
+xavier_grp = f"[Xavier Support]({grp_link})"
 
 WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attractive.**
   {mention} :  To mention the user
@@ -71,4 +71,4 @@ WELCOME_FORMAT = """**Use these fomats in your welcome note to make them attract
 """
 # will add more soon
 
-# hellbot
+# xavier

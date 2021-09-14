@@ -10,7 +10,7 @@ from telethon.tl.types import InputMessagesFilterDocument
 from . import *
 
 
-@bot.on(hell_cmd(pattern=r"cmds"))
+@bot.on(xavier_cmd(pattern=r"cmds"))
 @bot.on(sudo_cmd(pattern=r"cmds", allow_sudo=True))
 async def kk(event):
     if event.fwd_from:
@@ -18,8 +18,8 @@ async def kk(event):
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
-    cmd = "ls hellbot/plugins"
-    thumb = hell_logo
+    cmd = "ls xavier/plugins"
+    thumb = xavier_logo
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
@@ -27,11 +27,11 @@ async def kk(event):
     o = stdout.decode()
     _o = o.split("\n")
     o = "\n".join(_o)
-    OUTPUT = f"List of Plugins in bot :- \n\n{o}\n\n<><><><><><><><><><><><><><><><><><><><><><><><>\nHELP:- If you want to know the commands for a plugin, do :- \n.plinfo <plugin name> without the < > brackets. \nJoin {hell_grp} for help."
+    OUTPUT = f"List of Plugins in bot :- \n\n{o}\n\n<><><><><><><><><><><><><><><><><><><><><><><><>\nHELP:- If you want to know the commands for a plugin, do :- \n.plinfo <plugin name> without the < > brackets. \nJoin {xavier_grp} for help."
     if len(OUTPUT) > 69:
         with io.BytesIO(str.encode(OUTPUT)) as out_file:
             out_file.name = "cmd_list.text"
-            hell_file = await bot.send_file(
+            xavier_file = await bot.send_file(
                 event.chat_id,
                 out_file,
                 force_document=True,
@@ -39,11 +39,11 @@ async def kk(event):
                 thumb=thumb,
                 reply_to=reply_to_id,
             )
-            await edit_or_reply(hell_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {HELL_USER}")
+            await edit_or_reply(xavier_file, f"Output Too Large. This is the file for the list of plugins in bot.\n\n**BY :-** {XAVIER_USER}")
             await event.delete()
 
 
-@bot.on(hell_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
+@bot.on(xavier_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
 @bot.on(sudo_cmd(pattern=r"send (?P<shortname>\w+)", allow_sudo=True))
 async def send(event):
     if event.fwd_from:
@@ -51,8 +51,8 @@ async def send(event):
     message_id = event.message.id
     thumb = hell_logo
     input_str = event.pattern_match.group(1)
-    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {hell_mention}\n\n⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt]({chnl_link})** ⚡"
-    the_plugin_file = "./hellbot/plugins/{}.py".format(input_str)
+    omk = f"**• Plugin name ≈** `{input_str}`\n**• Uploaded by ≈** {xavier_mention}\n\n⚡ **[LIT AS XAVIER]({chnl_link})** ⚡"
+    the_plugin_file = "./xavier/plugins/{}.py".format(input_str)
     if os.path.exists(the_plugin_file):
         lauda = await event.client.send_file(
             event.chat_id,
@@ -68,19 +68,19 @@ async def send(event):
         await eod(event, "File not found..... Kek")
 
 
-@bot.on(hell_cmd(pattern="install ?(.*)"))
+@bot.on(xavier_cmd(pattern="install ?(.*)"))
 @bot.on(sudo_cmd(pattern="install ?(.*)", allow_sudo=True))
 async def install(event):
     if event.fwd_from:
         return
     b = 1
     owo = event.text[9:]
-    hell = await eor(event, "__Installing.__")
+    xavier = await eor(event, "__Installing.__")
     if event.reply_to_msg_id:
         try:
             downloaded_file_name = await event.client.download_media(  # pylint:disable=E0602
                 await event.get_reply_message(),
-                "./hellbot/plugins/"  # pylint:disable=E0602
+                "./xavier/plugins/"  # pylint:disable=E0602
             )
             if owo != "-f":
                 op = open(downloaded_file_name, "r")
@@ -90,7 +90,7 @@ async def install(event):
                     for harm in HARMFUL:
                         if harm in rd:
                             os.remove(downloaded_file_name)
-                            return await hell.edit(f"**⚠️ WARNING !!** \n\n__Replied plugin file contains some harmful codes. Please consider checking the file. If you still want to install then use__ `{hl}install -f`. \n\n**Codes Detected :** \n• {harm}")
+                            return await xavier.edit(f"**⚠️ WARNING !!** \n\n__Replied plugin file contains some harmful codes. Please consider checking the file. If you still want to install then use__ `{hl}install -f`. \n\n**Codes Detected :** \n• {harm}")
                 except BaseException:
                     pass
             if "(" not in downloaded_file_name:
@@ -108,34 +108,34 @@ async def install(event):
                         else:
                             a = "__Installing...__"
                             b = 1
-                        await hell.edit(a)
-                    return await hell.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {hell_mention}\n\n{string}\n\n        ⚡ **[ʟɛɢɛռɖaʀʏ ᴀғ ɦɛʟʟɮօt]({chnl_link})** ⚡", link_preview=False)
-                return await hell.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
+                        await xavier.edit(a)
+                    return await xavier.edit(f"✅ **Installed module** :- `{shortname}` \n✨ BY :- {xavier_mention}\n\n{string}\n\n        ⚡ **[LIT AS XAVIER]({chnl_link})** ⚡", link_preview=False)
+                return await xavier.edit(f"Installed module `{os.path.basename(downloaded_file_name)}`")
             else:
                 os.remove(downloaded_file_name)
-                return await eod(hell, f"**Failed to Install** \n`Error`\nModule already installed or unknown format")
+                return await eod(xavier, f"**Failed to Install** \n`Error`\nModule already installed or unknown format")
         except Exception as e: 
-            await eod(hell, f"**Failed to Install** \n`Error`\n{str(e)}")
+            await eod(xavier, f"**Failed to Install** \n`Error`\n{str(e)}")
             return os.remove(downloaded_file_name)
 
 
-@bot.on(hell_cmd(pattern=r"uninstall ?(.*)"))
+@bot.on(xavier_cmd(pattern=r"uninstall ?(.*)"))
 @bot.on(sudo_cmd(pattern=r"uninstall ?(.*)", allow_sudo=True))
 async def uninstall(event):
     shortname = event.text[11:]
     if ".py" in shortname:
         shortname = shortname.replace(".py", "")
-    hell = await eor(event, f"__Trying to uninstall plugin__ `{shortname}` ...")
-    dir_path =f"./hellbot/plugins/{shortname}.py"
+    xavier = await eor(event, f"__Trying to uninstall plugin__ `{shortname}` ...")
+    dir_path =f"./xavier/plugins/{shortname}.py"
     try:
         remove_plugin(shortname)
         os.remove(dir_path)
-        await eod(hell, f"**Uninstalled plugin** `{shortname}` **successfully.**")
+        await eod(xavier, f"**Uninstalled plugin** `{shortname}` **successfully.**")
     except OSError as e:
-        await eod(hell, f"**Error !!** \n\n`{dir_path}` : __{e.strerror}__")
+        await eod(xavier, f"**Error !!** \n\n`{dir_path}` : __{e.strerror}__")
 
 
-@bot.on(hell_cmd(pattern=r"unload (?P<shortname>\w+)$"))
+@bot.on(xavier_cmd(pattern=r"unload (?P<shortname>\w+)$"))
 @bot.on(sudo_cmd(pattern=r"unload (?P<shortname>\w+)$", allow_sudo=True))
 async def unload(event):
     if event.fwd_from:
@@ -152,7 +152,7 @@ async def unload(event):
         )
 
 
-@bot.on(hell_cmd(pattern=r"load (?P<shortname>\w+)$"))
+@bot.on(xavier_cmd(pattern=r"load (?P<shortname>\w+)$"))
 @bot.on(sudo_cmd(pattern=r"load (?P<shortname>\w+)$", allow_sudo=True))
 async def load(event):
     if event.fwd_from:
@@ -171,9 +171,9 @@ async def load(event):
         )
 
 CmdHelp("core").add_command(
-  "install", "<reply to a .py file>", "Installs the replied python file if suitable to Hêllẞø†'s codes.`\n**🚩 Flags :** `-f"
+  "install", "<reply to a .py file>", "Installs the replied python file if suitable to Xavier's codes.`\n**🚩 Flags :** `-f"
 ).add_command(
-  "uninstall", "<plugin name>", "Uninstalls the given plugin from Hêllẞø†. To get that again do .restart", "uninstall alive"
+  "uninstall", "<plugin name>", "Uninstalls the given plugin from Xavier. To get that again do .restart", "uninstall alive"
 ).add_command(
   "load", "<plugin name>", "Loades the unloaded plugin to your userbot", "load alive"
 ).add_command(
@@ -181,9 +181,9 @@ CmdHelp("core").add_command(
 ).add_command(
   "send", "<file name>", "Sends the given file from your userbot server, if any.", "send alive"
 ).add_command(
-  "cmds", None, "Gives out the list of modules in HellBot."
+  "cmds", None, "Gives out the list of modules in Xavier."
 ).add_warning(
   "❌ Install External Plugin On Your Own Risk. We won't help if anything goes wrong after installing a plugin."
 ).add()
 
-# hellbot
+# xavier
